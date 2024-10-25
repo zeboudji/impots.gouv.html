@@ -4,7 +4,7 @@ import streamlit.components.v1 as components
 # Configurer la page pour utiliser toute la largeur
 st.set_page_config(page_title="Impôts.gouv - Informations fiscales", layout="wide")
 
-# Code HTML complet et amélioré
+# Code HTML complet et amélioré avec logo
 html_code_responsive = """
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,6 +33,18 @@ html_code_responsive = """
             position: relative;
             width: 100%;
             box-sizing: border-box;
+        }
+
+        /* Logo styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 40px; /* Ajustez la hauteur du logo selon vos besoins */
+            width: auto;
+            margin-right: 10px; /* Espacement entre le logo et le texte */
         }
 
         header h1 {
@@ -152,6 +164,16 @@ html_code_responsive = """
             .search-bar input {
                 width: 90%;
             }
+
+            /* Ajustement de la taille du logo sur petits écrans */
+            .logo-container img {
+                height: 30px;
+                margin-right: 5px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
         }
 
         /* Search bar */
@@ -259,7 +281,10 @@ html_code_responsive = """
 <body>
 
 <header>
-    <h1>Impôts.gouv</h1>
+    <div class="logo-container">
+        <img src="https://www.impots.gouv.fr/sites/default/files/2023-10/bloc_impots_gouv.svg" alt="Logo Impôts.gouv"> <!-- Remplacez l'URL par celle de votre logo -->
+        <h1>Impôts.gouv</h1>
+    </div>
     <div class="nav-container">
         <button class="menu-btn">☰</button>
         <nav>
