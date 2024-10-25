@@ -43,7 +43,7 @@ html_code_responsive = """
         /* Navigation styling */
         nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: center;
             list-style-type: none;
             width: 50%;
@@ -140,7 +140,7 @@ html_code_responsive = """
 
             .card {
                 width: 90%;
-                margin: 15px 0;
+                margin: 10px 0;
             }
 
             .search-bar input {
@@ -184,7 +184,7 @@ html_code_responsive = """
         .cards-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: flex-start;
             margin: 0 20px;
             width: 100%;
             box-sizing: border-box;
@@ -193,13 +193,16 @@ html_code_responsive = """
         .card {
             background-color: white;
             border-radius: 10px;
-            width: 30%;
-            min-width: 280px;
-            margin: 20px 10px;
-            padding: 20px;
+            width: 23%;
+            min-width: 250px;
+            margin: 10px 10px;
+            padding: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -208,25 +211,28 @@ html_code_responsive = """
         }
 
         .card h2 {
-            font-size: 20px;
+            font-size: 18px;
             color: #005AAA;
             margin-bottom: 10px;
         }
 
         .card p {
-            font-size: 16px;
+            font-size: 14px;
             margin-bottom: 15px;
+            flex-grow: 1;
         }
 
         .cta-button {
             background-color: #005AAA;
             color: white;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: none;
             border-radius: 25px;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
             transition: background-color 0.3s;
+            align-self: center;
+            text-decoration: none;
         }
 
         .cta-button:hover {
@@ -298,7 +304,8 @@ html_code_responsive = """
 
 <script>
     // Toggle the burger menu
-    document.querySelector('.menu-btn').addEventListener('click', function() {
+    document.querySelector('.menu-btn').addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent the click from bubbling up to the window
         const menu = document.querySelector('.nav-menu');
         if (menu.style.display === 'flex') {
             menu.style.display = 'none';
@@ -322,4 +329,4 @@ html_code_responsive = """
 """
 
 # Afficher le HTML responsive via Streamlit
-components.html(html_code_responsive, height=1000, scrolling=True)
+components.html(html_code_responsive, height=1200, scrolling=True)
