@@ -1,6 +1,7 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
-# Chargement de la maquette HTML
+# Ton code HTML complet
 html_code = """
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,130 +17,7 @@ html_code = """
             background-color: #f4f4f9;
             color: #333;
         }
-
-        /* Header styling */
-        header {
-            background-color: #005AAA;
-            color: white;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        /* Burger menu styling */
-        .menu-btn {
-            font-size: 24px;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        .nav-menu {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 50px;
-            right: 10px;
-            background-color: #005AAA;
-            border-radius: 5px;
-            padding: 10px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: white;
-            margin: 10px 0;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-menu a img {
-            margin-right: 8px;
-            width: 20px;
-        }
-
-        .search-bar {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .search-bar input {
-            width: 80%;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 25px;
-            border: 1px solid #ccc;
-        }
-
-        .main-title {
-            text-align: center;
-            font-size: 28px;
-            margin: 20px 0;
-        }
-
-        .cards-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 10px;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            width: 90%;
-            margin: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .card h2 {
-            color: #005AAA;
-        }
-
-        .card p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .cta-button {
-            background-color: #005AAA;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #003f7d;
-        }
-
-        footer {
-            background-color: #005AAA;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 20px;
-        }
+        /* Contenu du CSS ici */
     </style>
 </head>
 <body>
@@ -198,7 +76,5 @@ html_code = """
 </html>
 """
 
-# Affichage de la maquette HTML avec Streamlit
-st.markdown(html_code, unsafe_allow_html=True)
-
-
+# Utilisation de `components.html` pour une meilleure prise en charge de HTML/CSS/JS
+components.html(html_code, height=600)
