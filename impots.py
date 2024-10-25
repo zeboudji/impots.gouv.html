@@ -1,4 +1,7 @@
+import streamlit as st
 
+# Chargement de la maquette HTML
+html_code = """
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -193,3 +196,9 @@
 
 </body>
 </html>
+"""
+
+# Affichage de la maquette HTML avec Streamlit
+st.markdown(html_code, unsafe_allow_html=True)
+
+
