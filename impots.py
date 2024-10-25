@@ -191,6 +191,16 @@ html_code_responsive = """
         <p>Le régime fiscal des associés de SEL évolue pour s'appliquer à partir de 2025.</p>
         <button class="cta-button">En savoir plus</button>
     </div>
+    <div class="card">
+        <h2>Attention aux arnaques !</h2>
+        <p>Des courriels et SMS frauduleux circulent pour promettre le remboursement d'un trop perçu ou menacer de poursuites pour non paiement d'impôts ou d'amendes. Ces escroqueries n'ont pour but que de vous extorquer de l'argent ou des informations.</p>
+        <button class="cta-button">En savoir plus</button>
+    </div>
+    <div class="card">
+        <h2>Correction des déclarations de</h2>
+        <p>Le service de correction des déclarations de revenus en ligne est ouvert du 31 juillet 2024 au 4 décembre 2024 inclus.</p>
+        <button class="cta-button">En savoir plus</button>
+    </div>
 </div>
 
 <footer>
