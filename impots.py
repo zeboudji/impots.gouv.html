@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # Ton code HTML complet
-html_code = """
+html_code_responsive = """
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +17,144 @@ html_code = """
             background-color: #f4f4f9;
             color: #333;
         }
-        /* Contenu du CSS ici */
+
+        /* Header styling */
+        header {
+            background-color: #005AAA;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 20px;
+        }
+
+        /* Navigation styling */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+            list-style-type: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #005AAA;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Mobile menu (burger) */
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #005AAA;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .nav-menu a {
+            color: white;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        /* Responsive styles for small screens */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+                right: 0;
+            }
+        }
+
+        /* Search bar */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input {
+            width: 60%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Section */
+        .main-title {
+            text-align: center;
+            font-size: 28px;
+            margin: 20px 0;
+            color: #005AAA;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 0 10px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            background-color: #005AAA;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #005AAA;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -28,35 +165,31 @@ html_code = """
 </header>
 
 <nav class="nav-menu">
-    <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Particulier"/>Particulier</a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/briefcase.png" alt="Professionnel"/>Professionnel</a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/handshake.png" alt="Partenaire"/>Partenaire</a>
-    <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/globe.png" alt="International"/>International</a>
+    <a href="#">Particulier</a>
+    <a href="#">Professionnel</a>
+    <a href="#">Partenaire</a>
+    <a href="#">International</a>
+</nav>
+
+<!-- Large screen menu -->
+<nav>
+    <a href="#">Particulier</a>
+    <a href="#">Professionnel</a>
+    <a href="#">Partenaire</a>
+    <a href="#">International</a>
 </nav>
 
 <div class="search-bar">
     <input type="text" placeholder="Recherchez un formulaire, une question...">
 </div>
 
-<h2 class="main-title">Informations sur le régime fiscal</h2>
+<h2 class="main-title">Informations fiscales et démarches</h2>
 
 <div class="cards-container">
     <div class="card">
         <h2>Nouveautés fiscales</h2>
-        <p>Le régime fiscal des associés de SEL évolue pour s'appliquer à partir de 2025. Déclarez vos revenus selon les nouvelles règles.</p>
+        <p>Le régime fiscal des associés de SEL évolue pour s'appliquer à partir de 2025.</p>
         <button class="cta-button">En savoir plus</button>
-    </div>
-
-    <div class="card">
-        <h2>Démarches à suivre</h2>
-        <p>Créez votre dossier auprès du service des impôts des entreprises pour être en conformité avec la nouvelle réglementation.</p>
-        <button class="cta-button">Compléter le dossier</button>
-    </div>
-
-    <div class="card">
-        <h2>Formulaires</h2>
-        <p>Retrouvez les formulaires nécessaires, tels que le 2035-SD et le 2042-C-PRO, pour vos déclarations fiscales.</p>
-        <button class="cta-button">Accéder aux formulaires</button>
     </div>
 </div>
 
@@ -76,5 +209,5 @@ html_code = """
 </html>
 """
 
-# Utilisation de `components.html` pour une meilleure prise en charge de HTML/CSS/JS
-components.html(html_code, height=600)
+# Afficher le HTML responsive via Streamlit
+components.html(html_code_responsive, height=800)
