@@ -274,4 +274,4 @@ html_code_responsive = """
 """
 
 # Afficher le HTML responsive via Streamlit
-components.html(html_code_responsive, height=1000)
+components.html(html_code_responsive, height=2000)
