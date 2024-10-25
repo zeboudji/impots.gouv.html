@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Ton code HTML complet
+# Code HTML complet et amélioré
 html_code_responsive = """
 <!DOCTYPE html>
 <html lang="fr">
@@ -22,14 +22,16 @@ html_code_responsive = """
         header {
             background-color: #005AAA;
             color: white;
-            padding: 15px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         header h1 {
-            font-size: 20px;
+            font-size: 24px;
+            margin: 0;
         }
 
         /* Navigation styling */
@@ -45,6 +47,7 @@ html_code_responsive = """
             color: #005AAA;
             font-size: 16px;
             font-weight: bold;
+            margin: 0 10px;
         }
 
         .menu-btn {
@@ -61,20 +64,28 @@ html_code_responsive = """
             display: none;
             flex-direction: column;
             position: absolute;
-            top: 50px;
-            right: 10px;
+            top: 60px;
+            right: 20px;
             background-color: #005AAA;
             border-radius: 5px;
             padding: 10px;
+            z-index: 1000;
         }
 
         .nav-menu a {
             color: white;
             margin: 10px 0;
             font-size: 16px;
+            text-align: center;
         }
 
         /* Responsive styles for small screens */
+        @media (max-width: 1024px) {
+            .cards-container {
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 768px) {
             .menu-btn {
                 display: block;
@@ -86,7 +97,16 @@ html_code_responsive = """
 
             .nav-menu {
                 display: flex;
-                right: 0;
+            }
+
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+                margin: 15px 0;
             }
         }
 
@@ -99,18 +119,26 @@ html_code_responsive = """
 
         .search-bar input {
             width: 60%;
-            padding: 12px;
+            max-width: 600px;
+            padding: 12px 20px;
             font-size: 16px;
             border-radius: 25px;
             border: 1px solid #ccc;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: #005AAA;
+            box-shadow: 0 4px 12px rgba(0, 90, 170, 0.3);
         }
 
         /* Main Section */
         .main-title {
             text-align: center;
             font-size: 28px;
-            margin: 20px 0;
+            margin: 20px 10px;
             color: #005AAA;
         }
 
@@ -118,13 +146,14 @@ html_code_responsive = """
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            margin: 0 10px;
+            margin: 0 20px;
         }
 
         .card {
             background-color: white;
             border-radius: 10px;
             width: 30%;
+            min-width: 280px;
             margin: 20px 10px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -137,6 +166,17 @@ html_code_responsive = """
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
+        .card h2 {
+            font-size: 20px;
+            color: #005AAA;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
         .cta-button {
             background-color: #005AAA;
             color: white;
@@ -145,7 +185,11 @@ html_code_responsive = """
             border-radius: 25px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #004080;
         }
 
         footer {
@@ -162,22 +206,19 @@ html_code_responsive = """
 <header>
     <h1>Impôts.gouv</h1>
     <button class="menu-btn">☰</button>
+    <nav>
+        <a href="#">Particulier</a>
+        <a href="#">Professionnel</a>
+        <a href="#">Partenaire</a>
+        <a href="#">International</a>
+    </nav>
+    <nav class="nav-menu">
+        <a href="#">Particulier</a>
+        <a href="#">Professionnel</a>
+        <a href="#">Partenaire</a>
+        <a href="#">International</a>
+    </nav>
 </header>
-
-<nav class="nav-menu">
-    <a href="#">Particulier</a>
-    <a href="#">Professionnel</a>
-    <a href="#">Partenaire</a>
-    <a href="#">International</a>
-</nav>
-
-<!-- Large screen menu -->
-<nav>
-    <a href="#">Particulier</a>
-    <a href="#">Professionnel</a>
-    <a href="#">Partenaire</a>
-    <a href="#">International</a>
-</nav>
 
 <div class="search-bar">
     <input type="text" placeholder="Recherchez un formulaire, une question...">
@@ -197,7 +238,7 @@ html_code_responsive = """
         <button class="cta-button">En savoir plus</button>
     </div>
     <div class="card">
-        <h2>Correction des déclarations de</h2>
+        <h2>Correction des déclarations</h2>
         <p>Le service de correction des déclarations de revenus en ligne est ouvert du 31 juillet 2024 au 4 décembre 2024 inclus.</p>
         <button class="cta-button">En savoir plus</button>
     </div>
@@ -211,7 +252,20 @@ html_code_responsive = """
     // Toggle the burger menu
     document.querySelector('.menu-btn').addEventListener('click', function() {
         const menu = document.querySelector('.nav-menu');
-        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+        if (menu.style.display === 'flex') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'flex';
+        }
+    });
+
+    // Fermer le menu lorsque l'utilisateur clique en dehors
+    window.addEventListener('click', function(event) {
+        const menu = document.querySelector('.nav-menu');
+        const button = document.querySelector('.menu-btn');
+        if (!button.contains(event.target) && !menu.contains(event.target)) {
+            menu.style.display = 'none';
+        }
     });
 </script>
 
@@ -220,4 +274,4 @@ html_code_responsive = """
 """
 
 # Afficher le HTML responsive via Streamlit
-components.html(html_code_responsive, height=800)
+components.html(html_code_responsive, height=1000)
