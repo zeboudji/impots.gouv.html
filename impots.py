@@ -1,6 +1,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+# Configurer la page pour utiliser toute la largeur
+st.set_page_config(page_title="Impôts.gouv - Informations fiscales", layout="wide")
+
 # Code HTML complet et amélioré
 html_code_responsive = """
 <!DOCTYPE html>
@@ -16,6 +19,7 @@ html_code_responsive = """
             padding: 0;
             background-color: #f4f4f9;
             color: #333;
+            width: 100%;
         }
 
         /* Header styling */
@@ -27,6 +31,8 @@ html_code_responsive = """
             justify-content: space-between;
             align-items: center;
             position: relative;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         header h1 {
@@ -38,16 +44,36 @@ html_code_responsive = """
         nav {
             display: flex;
             justify-content: space-around;
-            margin: 15px 0;
+            align-items: center;
             list-style-type: none;
+            width: 50%;
         }
 
         nav a {
             text-decoration: none;
-            color: #005AAA;
+            color: white;
             font-size: 16px;
             font-weight: bold;
             margin: 0 10px;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        /* Effet de survol pour les liens de navigation */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            left: 50%;
+            bottom: 0;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
         }
 
         .menu-btn {
@@ -70,6 +96,7 @@ html_code_responsive = """
             border-radius: 5px;
             padding: 10px;
             z-index: 1000;
+            width: 150px;
         }
 
         .nav-menu a {
@@ -77,12 +104,18 @@ html_code_responsive = """
             margin: 10px 0;
             font-size: 16px;
             text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #004080;
+            border-radius: 4px;
         }
 
         /* Responsive styles for small screens */
         @media (max-width: 1024px) {
-            .cards-container {
-                justify-content: center;
+            nav {
+                width: 70%;
             }
         }
 
@@ -102,11 +135,16 @@ html_code_responsive = """
             .cards-container {
                 flex-direction: column;
                 align-items: center;
+                padding: 0 10px;
             }
 
             .card {
                 width: 90%;
                 margin: 15px 0;
+            }
+
+            .search-bar input {
+                width: 90%;
             }
         }
 
@@ -115,6 +153,7 @@ html_code_responsive = """
             display: flex;
             justify-content: center;
             margin: 20px 0;
+            width: 100%;
         }
 
         .search-bar input {
@@ -125,7 +164,7 @@ html_code_responsive = """
             border-radius: 25px;
             border: 1px solid #ccc;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: width 0.3s ease;
+            transition: width 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .search-bar input:focus {
@@ -147,6 +186,8 @@ html_code_responsive = """
             flex-wrap: wrap;
             justify-content: space-around;
             margin: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .card {
@@ -198,6 +239,8 @@ html_code_responsive = """
             text-align: center;
             padding: 15px 0;
             margin-top: 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -274,4 +317,4 @@ html_code_responsive = """
 """
 
 # Afficher le HTML responsive via Streamlit
-components.html(html_code_responsive, height=2000)
+components.html(html_code_responsive, height=1000, scrolling=True)
