@@ -285,6 +285,11 @@ html_code_responsive = """
         <p>Le service de correction des déclarations de revenus en ligne est ouvert du 31 juillet 2024 au 4 décembre 2024 inclus.</p>
         <button class="cta-button">En savoir plus</button>
     </div>
+    <div class="card">
+        <h2>LA FACTURATION ÉLECTRONIQUE SE GÉNÉRALISE</h2>
+        <p>L'État accompagnera la généralisation de la facturation électronique entre entreprises.</p>
+        <button class="cta-button">En savoir plus</button>
+    </div>
 </div>
 
 <footer>
