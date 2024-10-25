@@ -28,7 +28,7 @@ html_code_responsive = """
             color: white;
             padding: 15px 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Espace entre le titre et le menu */
             align-items: center;
             position: relative;
             width: 100%;
@@ -40,13 +40,19 @@ html_code_responsive = """
             margin: 0;
         }
 
+        /* Container for navigation and menu button */
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
         /* Navigation styling */
         nav {
             display: flex;
             justify-content: flex-start;
             align-items: center;
             list-style-type: none;
-            width: 50%;
+            margin-left: 20px; /* Espacement entre le bouton et les liens */
         }
 
         nav a {
@@ -195,7 +201,7 @@ html_code_responsive = """
             border-radius: 10px;
             width: 23%;
             min-width: 250px;
-            margin: 10px 10px;
+            margin: 10px 10px; /* Réduction des marges */
             padding: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -254,19 +260,21 @@ html_code_responsive = """
 
 <header>
     <h1>Impôts.gouv</h1>
-    <button class="menu-btn">☰</button>
-    <nav>
-        <a href="#">Particulier</a>
-        <a href="#">Professionnel</a>
-        <a href="#">Partenaire</a>
-        <a href="#">International</a>
-    </nav>
-    <nav class="nav-menu">
-        <a href="#">Particulier</a>
-        <a href="#">Professionnel</a>
-        <a href="#">Partenaire</a>
-        <a href="#">International</a>
-    </nav>
+    <div class="nav-container">
+        <button class="menu-btn">☰</button>
+        <nav>
+            <a href="#">Particulier</a>
+            <a href="#">Professionnel</a>
+            <a href="#">Partenaire</a>
+            <a href="#">International</a>
+        </nav>
+        <nav class="nav-menu">
+            <a href="#">Particulier</a>
+            <a href="#">Professionnel</a>
+            <a href="#">Partenaire</a>
+            <a href="#">International</a>
+        </nav>
+    </div>
 </header>
 
 <div class="search-bar">
