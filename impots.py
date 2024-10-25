@@ -184,7 +184,7 @@ html_code_responsive = """
         .cards-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
+            justify-content: center; /* Centrer les cartes */
             margin: 0 20px;
             width: 100%;
             box-sizing: border-box;
