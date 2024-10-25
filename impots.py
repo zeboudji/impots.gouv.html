@@ -282,7 +282,7 @@ html_code_responsive = """
 
 <header>
     <div class="logo-container">
-        <img src="https://www.impots.gouv.fr/sites/default/files/2023-10/bloc_impots_gouv.svg" alt="Logo Impôts.gouv"> <!-- Remplacez l'URL par celle de votre logo -->
+        <img src="https://ville-de-roquevaire.fr/wp-content/uploads/2020/04/impots-gouv-fr.png"> <!-- Remplacez l'URL par celle de votre logo -->
         <h1>Impôts.gouv</h1>
     </div>
     <div class="nav-container">
